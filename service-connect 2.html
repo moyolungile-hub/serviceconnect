@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Service Connect | Find Trusted Services in Bulawayo</title>
+<meta name="description" content="Find local service providers in Bulawayo, Zimbabwe. Search services, view provider profiles, request quotations and contact local professionals.">
+<meta name="keywords" content="Bulawayo services, Zimbabwe service providers, plumbers Bulawayo, electricians Bulawayo, cleaning, repairs, local businesses">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#16a34a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Service Connect — Bulawayo's Local Services Marketplace">
+<meta property="og:description" content="Find local professionals, compare services and request a quote.">
+<style>
+:root{--bg:#f7fbf8;--card:#fff;--ink:#17231b;--mute:#647168;--line:#dce8df;--green:#16a34a;--dark:#166534;--soft:#effaf2;--danger:#b42318;box-sizing:border-box}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:1120px;margin:auto;padding:0 20px 40px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{max-width:1120px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:21px;font-weight:850;letter-spacing:-.04em;color:var(--ink);white-space:nowrap}
+.logo span{color:var(--green)}
+.navlinks{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.navlinks button,.navlinks a{border:0;background:transparent;color:var(--ink);text-decoration:none;padding:9px 12px;border-radius:9px;font-weight:650}
+.navlinks button:hover,.navlinks a:hover{background:var(--soft)}
+.primary{background:var(--green)!important;color:white!important;border:0;border-radius:10px;padding:12px 16px;font-weight:750}
+.primary:hover{background:var(--dark)!important}
+.hero{padding:42px 0 28px;display:grid;grid-template-columns:1.3fr .7fr;gap:25px;align-items:center}
+.eyebrow{display:inline-block;background:var(--soft);color:var(--dark);font-weight:750;font-size:13px;padding:6px 10px;border-radius:999px}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.045em;margin:14px 0}
+.hero p{font-size:18px;color:var(--mute);max-width:620px;margin:0 0 20px}
+.hero-card{background:linear-gradient(145deg,#e9f9ed,#fff);border:1px solid var(--line);border-radius:22px;padding:24px}
+.hero-card .big{font-size:44px}
+.hero-card h3{margin:5px 0}
+.hero-card p{font-size:15px;margin:0}
+.searchbox,.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 6px 24px #174b2510}
+.searchgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:10px;align-items:end}
+label{display:block;font-size:13px;font-weight:750;margin:0 0 6px}
+input,select,textarea{width:100%;border:1px solid #cbd9ce;border-radius:10px;background:white;color:var(--ink);padding:12px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #16a34a20}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:32px 0 14px}
+h2{font-size:24px;letter-spacing:-.025em;margin:0}
+.muted{color:var(--mute)}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.cat{border:1px solid var(--line);background:#fff;border-radius:13px;padding:16px 8px;text-align:center;font-weight:700;color:var(--ink)}
+.cat .icon{display:block;font-size:26px;margin-bottom:5px}
+.cat:hover,.cat.active{border-color:var(--green);background:var(--soft);color:var(--dark)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.provider{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.provider-top{padding:17px 17px 0;display:flex;gap:12px;align-items:center}
+.avatar{height:54px;width:54px;border-radius:15px;background:var(--soft);display:grid;place-items:center;font-size:25px;flex:none}
+.provider h3{margin:0;font-size:17px}
+.provider-body{padding:13px 17px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
+.tag{display:inline-flex;align-self:flex-start;background:var(--soft);color:var(--dark);border-radius:999px;padding:4px 9px;font-size:12px;font-weight:750}
+.meta{font-size:13px;color:var(--mute)}
+.provider-actions{display:flex;gap:8px;margin-top:auto;padding-top:5px}
+.outline{border:1px solid var(--line);background:white;border-radius:10px;padding:10px 12px;font-weight:700;color:var(--ink)}
+.outline:hover{background:var(--soft);border-color:var(--green)}
+.provider-actions button{flex:1}
+.empty{padding:28px;text-align:center;border:1px dashed var(--line);border-radius:14px;color:var(--mute);background:#fff;grid-column:1/-1}
+.featuregrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{background:white;border:1px solid var(--line);border-radius:14px;padding:18px}
+.feature strong{display:block;margin:8px 0 4px}
+footer{margin-top:42px;padding:24px 0;border-top:1px solid var(--line);color:var(--mute);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:#10211699;display:none;align-items:center;justify-content:center;padding:18px;z-index:30}
+.modal.show{display:flex}
+.dialog{background:#fff;border-radius:18px;padding:22px;width:min(620px,100%);max-height:90vh;overflow:auto;box-shadow:0 20px 70px #0003}
+.dialoghead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}
+.close{border:0;background:var(--soft);border-radius:9px;padding:8px 11px;font-weight:800}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:12px}
+textarea{min-height:100px;resize:vertical}
+.notice{background:var(--soft);padding:12px;border-radius:10px;font-size:13px;color:var(--dark);margin:12px 0}
+.results{display:grid;gap:9px;margin-top:14px}
+.result{background:var(--soft);border-radius:10px;padding:12px}
+.chatlog{height:220px;overflow:auto;background:#f7fbf8;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.bubble{padding:10px 12px;border-radius:12px;max-width:90%;white-space:pre-wrap}
+.bubble.bot{background:#e9f8ed;align-self:flex-start}
+.bubble.user{background:#dcfce7;align-self:flex-end}
+.chatrow{display:flex;gap:8px;margin-top:10px}
+.chatrow input{flex:1}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-card{display:none}.searchgrid{grid-template-columns:1fr 1fr}.categories{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.nav{align-items:flex-start}.navlinks{gap:2px;justify-content:flex-end}.navlinks button,.navlinks a{padding:8px;font-size:13px}.wrap{padding-left:14px;padding-right:14px}.hero{padding-top:30px}.searchgrid,.formgrid{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.cards,.featuregrid{grid-template-columns:1fr}.sectionhead{align-items:start;flex-direction:column}.logo{font-size:19px}}
+</style>
+</head>
+<body>
+<header><nav class="nav">
+  <div class="logo">Service <span>Connect</span></div>
+  <div class="navlinks">
+    <a href="#services">Find services</a>
+    <button type="button" id="aiOpen">AI assistant</button>
+    <button type="button" class="primary" id="joinOpen">List your service</button>
+  </div>
+</nav></header>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <span class="eyebrow">MADE FOR BULAWAYO</span>
+    <h1>Find the right person for the job.</h1>
+    <p>Discover local service providers, compare what they offer and request a quote — all in one place.</p>
+    <button class="primary" type="button" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Find a service ↓</button>
+  </div>
+  <div class="hero-card"><div class="big">🤝</div><h3>Local people. Helpful services.</h3><p>Connect with service providers around Bulawayo, from repairs and cleaning to beauty and events.</p></div>
+</section>
+
+<section class="searchbox" aria-label="Search local services">
+  <div class="searchgrid">
+    <div><label for="q">What service do you need?</label><input id="q" placeholder="e.g. plumber, braids, cleaning"></div>
+    <div><label for="area">Area in Bulawayo</label><select id="area"><option value="">All areas</option><option>Bulawayo CBD</option><option>Hillside</option><option>Nkulumane</option><option>Entumbane</option><option>Mzilikazi</option><option>Pumula</option><option>Burnside</option><option>Suburbs</option><option>Other / nearby</option></select></div>
+    <div><label for="category">Service category</label><select id="category"><option value="">All categories</option><option>Home repairs</option><option>Cleaning</option><option>Beauty</option><option>Transport</option><option>Events</option><option>Technology</option><option>Education</option><option>Other</option></select></div>
+    <button class="primary" id="searchBtn" type="button">Search</button>
+  </div>
+</section>
+
+<section id="services">
+  <div class="sectionhead"><div><h2>Browse by category</h2><div class="muted">Choose the kind of help you need.</div></div></div>
+  <div class="categories" id="categories">
+    <button class="cat" data-cat="Home repairs"><span class="icon">🔧</span>Home repairs</button>
+    <button class="cat" data-cat="Cleaning"><span class="icon">🧹</span>Cleaning</button>
+    <button class="cat" data-cat="Beauty"><span class="icon">💇</span>Beauty</button>
+    <button class="cat" data-cat="Transport"><span class="icon">🚚</span>Transport</button>
+    <button class="cat" data-cat="Events"><span class="icon">🎉</span>Events</button>
+    <button class="cat" data-cat="Technology"><span class="icon">💻</span>Technology</button>
+  </div>
+  <div class="sectionhead"><div><h2>Service providers</h2><div class="muted" id="count">Example listings to demonstrate the website.</div></div><button class="outline" type="button" id="resetBtn">Clear filters</button></div>
+  <div class="cards" id="cards"></div>
+  <div class="notice">Demo notice: these are sample listings, not verified real businesses. Replace them with real provider profiles before launching publicly.</div>
+</section>
+
+<section>
+  <div class="sectionhead"><div><h2>How Service Connect works</h2><div class="muted">A simple way to find help nearby.</div></div></div>
+  <div class="featuregrid">
+    <div class="feature"><span class="icon">🔎</span><strong>1. Search</strong><span class="muted">Choose a service and area in Bulawayo.</span></div>
+    <div class="feature"><span class="icon">💬</span><strong>2. Connect</strong><span class="muted">View a provider and send an enquiry.</span></div>
+    <div class="feature"><span class="icon">🧾</span><strong>3. Request a quote</strong><span class="muted">Describe the job and discuss the price before agreeing.</span></div>
+  </div>
+</section>
+<footer><span><strong>Service Connect</strong> · Connecting Bulawayo to local services.</span><span>White + green · Built for mobile and desktop</span></footer>
+</main>
+
+<div class="modal" id="providerModal" role="dialog" aria-modal="true" aria-labelledby="providerTitle"><div class="dialog">
+  <div class="dialoghead"><h2 id="providerTitle">Provider details</h2><button class="close" data-close="providerModal">✕</button></div>
+  <div id="providerDetails"></div>
+  <div class="formgrid"><div class="field"><label for="customerName">Your name</label><input id="customerName" placeholder="Your name"></div><div class="field"><label for="customerContact">Your contact (optional)</label><input id="customerContact" placeholder="Phone or email"></div></div>
+  <div class="field"><label for="messageText">Message / job details</label><textarea id="messageText" placeholder="Tell the provider what you need..."></textarea></div>
+  <div class="field"><label for="budget">Your budget (optional)</label><input id="budget" placeholder="e.g. $20–$40"></div>
+  <button class="primary" id="sendEnquiry" type="button">Send enquiry</button>
+  <div class="notice" id="enquiryNotice">This demo stores enquiries in this browser only. A live website needs a secure backend to deliver messages to providers.</div>
+</div></div>
+
+<div class="modal" id="joinModal" role="dialog" aria-modal="true" aria-labelledby="joinTitle"><div class="dialog">
+  <div class="dialoghead"><h2 id="joinTitle">List your service</h2><button class="close" data-close="joinModal">✕</button></div>
+  <p class="muted">Tell us about your service. This demo saves the request in this browser; it does not publish it online.</p>
+  <form id="joinForm">
+    <div class="formgrid"><div class="field"><label for="businessName">Business / provider name *</label><input id="businessName" required></div><div class="field"><label for="providerName">Contact person *</label><input id="providerName" required></div>
+    <div class="field"><label for="providerCategory">Category *</label><select id="providerCategory" required><option value="">Choose one</option><option>Home repairs</option><option>Cleaning</option><option>Beauty</option><option>Transport</option><option>Events</option><option>Technology</option><option>Education</option><option>Other</option></select></div><div class="field"><label for="providerArea">Area *</label><input id="providerArea" placeholder="e.g. Nkulumane" required></div></div>
+    <div class="field"><label for="providerServices">Services offered *</label><textarea id="providerServices" required placeholder="Describe your services"></textarea></div>
+    <div class="field"><label for="providerContact">Phone / WhatsApp *</label><input id="providerContact" required></div>
+    <button class="primary" type="submit">Submit listing request</button><div id="joinStatus" class="notice" hidden></div>
+  </form>
+</div></div>
+
+<div class="modal" id="aiModal" role="dialog" aria-modal="true" aria-labelledby="aiTitle"><div class="dialog">
+  <div class="dialoghead"><h2 id="aiTitle">Service Connect assistant</h2><button class="close" data-close="aiModal">✕</button></div>
+  <p class="muted">Describe what you need and the assistant will suggest matching sample listings. It only uses the provider records available in this demo.</p>
+  <div class="chatlog" id="chatlog"><div class="bubble bot">Hi! What service do you need in Bulawayo, and which area are you in?</div></div>
+  <div class="chatrow"><input id="aiInput" placeholder="e.g. I need a plumber in Hillside"><button class="primary" id="aiSend" type="button">Send</button></div>
+  <div class="notice">AI prompt logic (demo): identify the requested service, area and budget; search the available provider records; recommend only matching records; if there are no matches, say so and ask a helpful follow-up. Never invent providers, prices, reviews or availability.</div>
+</div></div>
+
+<script>
+(function(){
+const providers=[
+{id:1,name:"BrightFix Home Services",category:"Home repairs",service:"Plumbing, tap repairs and small household maintenance",area:"Hillside",price:"Quote after inspection",icon:"🔧",desc:"A sample home-repair profile for plumbing and general maintenance.",keywords:"plumber plumbing tap leak repairs maintenance"},
+{id:2,name:"Spark Electrical",category:"Home repairs",service:"Electrical checks, lights and socket repairs",area:"Bulawayo CBD",price:"Request a quote",icon:"⚡",desc:"A sample electrician profile. Confirm qualifications and scope before hiring.",keywords:"electrician electrical lights sockets"},
+{id:3,name:"FreshStart Cleaning",category:"Cleaning",service:"Home, office and move-out cleaning",area:"Nkulumane",price:"From $15 (sample)",icon:"🧹",desc:"A sample cleaning profile for homes and small offices.",keywords:"cleaner cleaning house office"},
+{id:4,name:"Glow Beauty Studio",category:"Beauty",service:"Braids, styling and event-ready looks",area:"Bulawayo CBD",price:"Prices vary by style",icon:"💇",desc:"A sample beauty profile. Ask for recent work photos and final pricing.",keywords:"salon hair braids beauty styling"},
+{id:5,name:"QuickMove Transport",category:"Transport",service:"Local deliveries and small moves",area:"Entumbane",price:"Quote by distance",icon:"🚚",desc:"A sample local transport profile. Confirm vehicle size and timing.",keywords:"transport delivery moving courier"},
+{id:6,name:"Moments Event Hire",category:"Events",service:"Chairs, tables and small-event setup",area:"Suburbs",price:"Quote by guest count",icon:"🎉",desc:"A sample event supplier profile. Confirm stock and delivery fees.",keywords:"events chairs tables party decor"},
+{id:7,name:"ByteCare Tech Help",category:"Technology",service:"Computer setup, software help and basic troubleshooting",area:"Burnside",price:"Request a quote",icon:"💻",desc:"A sample tech-support profile. Explain the device and issue when enquiring.",keywords:"computer laptop technology IT software"},
+{id:8,name:"StudySteps Tutor",category:"Education",service:"Homework support and subject tutoring",area:"Pumula",price:"Agree before booking",icon:"📚",desc:"A sample tutoring profile. Ask about subjects, experience and lesson format.",keywords:"tutor tutoring education homework"}
+];
+let activeProvider=null,activeCategory="";
+const $=id=>document.getElementById(id);
+function showModal(id){$(id).classList.add("show")}
+function hideModal(id){$(id).classList.remove("show")}
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hideModal(b.dataset.close)));
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("show")}));
+$("joinOpen").onclick=()=>showModal("joinModal");
+$("aiOpen").onclick=()=>showModal("aiModal");
+function getFiltered(){
+const q=$("q").value.trim().toLowerCase(),area=$("area").value,cat=$("category").value||activeCategory;
+return providers.filter(p=>{
+const text=(p.name+" "+p.category+" "+p.service+" "+p.area+" "+p.keywords).toLowerCase();
+return (!q||text.includes(q))&&(!area||p.area===area||area==="Other / nearby"&&/other|nearby/i.test(p.area))&&(!cat||p.category===cat);
+});
+}
+function render(){
+const list=getFiltered(),cards=$("cards");cards.innerHTML="";
+$("count").textContent=list.length+" sample provider"+(list.length===1?"":"s")+" found. Listings shown are examples.";
+if(!list.length){cards.innerHTML='<div class="empty">No matching sample providers found. Try another search or clear the filters.</div>';return}
+list.forEach(p=>{
+const el=document.createElement("article");el.className="provider";
+el.innerHTML='<div class="provider-top"><div class="avatar">'+p.icon+'</div><div><h3></h3><div class="meta"></div></div></div><div class="provider-body"><span class="tag"></span><div class="service"></div><div class="meta"></div><div class="provider-actions"><button class="outline details">View profile</button><button class="primary enquire">Request quote</button></div></div>';
+el.querySelector("h3").textContent=p.name;el.querySelector(".provider-top .meta").textContent="📍 "+p.area;
+el.querySelector(".tag").textContent=p.category;el.querySelector(".service").textContent=p.service;el.querySelector(".provider-body .meta").textContent="Price: "+p.price;
+el.querySelector(".details").onclick=()=>openProvider(p,false);el.querySelector(".enquire").onclick=()=>openProvider(p,true);
+cards.appendChild(el);
+});
+}
+function openProvider(p,focus){
+activeProvider=p;
+$("providerTitle").textContent=p.name;
+$("providerDetails").innerHTML="";
+const box=document.createElement("div");box.className="result";
+const strong=document.createElement("strong");strong.textContent=p.category+" · "+p.area;
+const para=document.createElement("p");para.textContent=p.desc+" Services: "+p.service+".";
+const price=document.createElement("div");price.textContent="Price guide: "+p.price;
+box.append(strong,para,price);$("providerDetails").appendChild(box);
+$("messageText").value=focus?"Hi, I would like a quote for your service. ":"";
+$("enquiryNotice").textContent="Demo only: your enquiry is saved locally in this browser. It is not sent to this provider.";
+showModal("providerModal");if(focus)setTimeout(()=>$("messageText").focus(),100);
+}
+$("sendEnquiry").onclick=()=>{
+if(!activeProvider){return}
+const msg=$("messageText").value.trim();
+if(!msg){$("enquiryNotice").textContent="Please add a few details about the service you need.";return}
+const item={provider:activeProvider.name,name:$("customerName").value.trim(),contact:$("customerContact").value.trim(),message:msg,budget:$("budget").value.trim(),date:new Date().toISOString()};
+const arr=JSON.parse(localStorage.getItem("sc_enquiries")||"[]");arr.push(item);localStorage.setItem("sc_enquiries",JSON.stringify(arr));
+$("enquiryNotice").textContent="Enquiry saved in this browser demo. To deliver it to the provider, Service Connect needs a secure backend and messaging system.";
+};
+$("searchBtn").onclick=render;$("q").addEventListener("keydown",e=>{if(e.key==="Enter")render()});
+$("area").onchange=render;$("category").onchange=()=>{activeCategory="";document.querySelectorAll(".cat").forEach(b=>b.classList.remove("active"));render()};
+$("resetBtn").onclick=()=>{$("q").value="";$("area").value="";$("category").value="";activeCategory="";document.querySelectorAll(".cat").forEach(b=>b.classList.remove("active"));render()};
+document.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{activeCategory=activeCategory===b.dataset.cat?"":b.dataset.cat;$("category").value="";document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("active",x.dataset.cat===activeCategory));render()});
+$("joinForm").onsubmit=e=>{e.preventDefault();const listing={business:$("businessName").value.trim(),contactPerson:$("providerName").value.trim(),category:$("providerCategory").value,area:$("providerArea").value.trim(),services:$("providerServices").value.trim(),contact:$("providerContact").value.trim(),date:new Date().toISOString()};const arr=JSON.parse(localStorage.getItem("sc_listing_requests")||"[]");arr.push(listing);localStorage.setItem("sc_listing_requests",JSON.stringify(arr));$("joinStatus").hidden=false;$("joinStatus").textContent="Listing request saved in this browser demo. It is not yet submitted to a live Service Connect team.";};
+function addBubble(text,who){const d=document.createElement("div");d.className="bubble "+who;d.textContent=text;$("chatlog").appendChild(d);$("chatlog").scrollTop=$("chatlog").scrollHeight}
+function askAssistant(){
+const text=$("aiInput").value.trim();if(!text)return;addBubble(text,"user");$("aiInput").value="";
+const lower=text.toLowerCase();let matches=providers.filter(p=>(p.name+" "+p.category+" "+p.service+" "+p.area+" "+p.keywords).toLowerCase().split(/\s+/).some(w=>w.length>3&&lower.includes(w)));
+const areaWords=["hillside","nkulumane","entumbane","mzilikazi","pumula","burnside","suburbs","cbd"];
+const area=areaWords.find(a=>lower.includes(a));
+if(area)matches=matches.filter(p=>p.area.toLowerCase().includes(area));
+if(!matches.length){
+addBubble("I couldn't find a matching provider in the sample listings. Try describing the service (for example, plumbing, cleaning or computer help) and your Bulawayo area. The live version should search the full provider database.","bot");
+}else{
+const names=matches.slice(0,4).map(p=>"• "+p.name+" — "+p.category+", "+p.area+". "+p.service+". Price: "+p.price).join("\n");
+addBubble("Here are the closest matches in the sample records:\n"+names+"\n\nThese are demo listings, not verified businesses. Contact the provider and agree on the price before booking.","bot");
+}
+}
+$("aiSend").onclick=askAssistant;$("aiInput").addEventListener("keydown",e=>{if(e.key==="Enter")askAssistant()});
+render();
+})();
+</script>
+</body>
+</html>
